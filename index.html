@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#635bff" />
+  <meta name="description" content="Interactive mensuration lab for secondary-level mathematics." />
+  <title>Mensuration Lab</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="mensuration-mobile">
+    <div class="shell">
+      <section class="panel hero">
+        <div>
+          <div class="eyebrow">Interactive mensuration lab</div>
+          <h1>Learn shapes by <span>playing with them.</span></h1>
+          <p>Designed to work smoothly on phones, tablets, laptops and classroom projectors. Swipe shapes, drag dimensions and explore formulas live.</p>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orb"></div>
+          <div class="circle"></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="topbar">
+          <div>
+            <div class="eyebrow">Shape library</div>
+            <h2>Choose what to explore</h2>
+          </div>
+          <div class="selectors">
+            <label>Unit
+              <select id="unit">
+                <option>mm</option>
+                <option selected>cm</option>
+                <option>m</option>
+              </select>
+            </label>
+            <label>π value
+              <select id="piMode">
+                <option value="exact" selected>π</option>
+                <option value="22/7">22/7</option>
+                <option value="3.14">3.14</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <div class="tabs" role="tablist">
+          <button class="tab" id="tab2d" type="button" aria-selected="true">◇ 2D</button>
+          <button class="tab" id="tab3d" type="button" aria-selected="false">⬡ 3D</button>
+          <button class="tab" id="tabCombined" type="button" aria-selected="false">✦ Combined</button>
+        </div>
+
+        <div id="shapeGrid" class="shape-scroll"></div>
+      </section>
+
+      <section class="workspace">
+        <article class="panel">
+          <div class="heading">
+            <div>
+              <div class="eyebrow">Live visual</div>
+              <h2 id="shapeName">Rectangle</h2>
+            </div>
+            <span id="shapeBadge" class="badge">2D</span>
+          </div>
+          <div class="canvas-wrap">
+            <svg id="canvas" viewBox="0 0 600 440" role="img" aria-label="Interactive mensuration shape"></svg>
+          </div>
+          <p class="small-note">↔ The figure stays fully visible and scales with your dimensions.</p>
+        </article>
+
+        <aside class="panel">
+          <div class="heading">
+            <div>
+              <div class="eyebrow">Dimensions</div>
+              <h2>Change measurements</h2>
+            </div>
+          </div>
+
+          <p class="control-intro">Drag the slider or enter an exact value. Everything updates immediately.</p>
+          <div id="controls" class="control-list"></div>
+
+          <div class="action-row">
+            <button id="randomBtn" class="action" type="button">✦ Random values</button>
+            <button id="challengeBtn" class="action primary" type="button">🎯 Mini challenge</button>
+          </div>
+
+          <label class="working-toggle">
+            <input id="showWorking" type="checkbox" />
+            Show working
+          </label>
+
+          <div id="challengeBox" class="challenge">
+            <strong>Can you solve it?</strong>
+            <p id="challengeQ"></p>
+            <div class="challenge-row">
+              <input id="challengeAnswer" type="number" step="any" placeholder="Your answer" />
+              <button id="checkChallenge" type="button">Check</button>
+            </div>
+            <p id="challengeFeedback"></p>
+            <button id="closeChallenge" class="close-btn" type="button">Close</button>
+          </div>
+        </aside>
+      </section>
+
+      <section class="panel">
+        <div class="eyebrow">Formula board</div>
+        <h2>Measurements at a glance</h2>
+        <div id="results" class="results" aria-live="polite"></div>
+      </section>
+
+      <section class="notes">
+        <div class="note">
+          <strong>💡 Teacher prompt</strong>
+          <div id="tip"></div>
+        </div>
+        <div class="note">
+          <strong>🧠 Quick memory</strong>
+          <div id="remember"></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
